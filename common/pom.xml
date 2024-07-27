@@ -13,5 +13,13 @@
     <artifactId>common</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.ninja-squad</groupId>
+            <artifactId>springmockk</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.marcinziolo</groupId>
+            <artifactId>kotlin-wiremock</artifactId>
+        </dependency>
     </dependencies>
 </project>

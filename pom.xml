@@ -32,6 +32,10 @@
 
         <sokomishalov-commons.version>1.2.1</sokomishalov-commons.version>
 
+        <springmockk.version>3.0.1</springmockk.version>
+        <wiremock.version>3.4.2</wiremock.version>
+        <kotlin-wiremock.version>2.1.1</kotlin-wiremock.version>
+
         <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
         <jacoco.version>0.8.7</jacoco.version>
         <sonar.coverage.jacoco.xmlReportPaths>
@@ -61,6 +65,38 @@
                 <groupId>ru.sokomishalov.commons</groupId>
                 <artifactId>commons-spring</artifactId>
                 <version>${sokomishalov-commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.ninja-squad</groupId>
+                <artifactId>springmockk</artifactId>
+                <version>${springmockk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wiremock</groupId>
+                <artifactId>wiremock-standalone</artifactId>
+                <version>${wiremock.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.marcinziolo</groupId>
+                <artifactId>kotlin-wiremock</artifactId>
+                <version>${kotlin-wiremock.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.awaitility</groupId>
+                <artifactId>awaitility</artifactId>
+                <version>3.0.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
