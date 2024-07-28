@@ -1,5 +1,7 @@
 # Проектная работа курса OTUS Архитектура и шаблоны проектирования
 
+[![codecov](https://codecov.io/github/skubatko/2024-03-otus-main-patterns-Kubatko--project/graph/badge.svg?token=R1I2WISJO2)](https://codecov.io/github/skubatko/2024-03-otus-main-patterns-Kubatko--project)
+
 ## Описание
 
 Умные ссылки.
