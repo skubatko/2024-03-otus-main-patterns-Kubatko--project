@@ -25,9 +25,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - run: mvn -B verify --no-transfer-progress
-      - uses: codecov/codecov-action@v4
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_ORG_TOKEN }}
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           file: ./**/target/site/jacoco/jacoco.xml
-          name: codecov
