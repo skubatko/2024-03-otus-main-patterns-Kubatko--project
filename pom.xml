@@ -38,9 +38,8 @@
 
         <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
         <jacoco.version>0.8.7</jacoco.version>
-        <sonar.coverage.jacoco.xmlReportPaths>
-            ${project.reporting.outputDirectory}/jacoco/jacoco.xml
-        </sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.jacoco.itReportPath>${project.basedir}/../target/jacoco-it.exec</sonar.jacoco.itReportPath>
     </properties>
 
     <dependencyManagement>
@@ -322,7 +321,7 @@
                                             <limit>
                                                 <counter>LINE</counter>
                                                 <value>COVEREDRATIO</value>
-                                                <minimum>0%</minimum>
+                                                <minimum>90%</minimum>
                                             </limit>
                                         </limits>
                                     </rule>
@@ -348,6 +347,10 @@
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
