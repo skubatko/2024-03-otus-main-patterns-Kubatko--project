@@ -18,9 +18,12 @@
 
     <modules>
         <module>api</module>
+        <module>auth</module>
         <module>common</module>
         <module>editor</module>
+        <module>jwt</module>
         <module>service</module>
+        <module>user</module>
     </modules>
 
     <properties>
@@ -30,6 +33,7 @@
         <kotlin.version>1.9.23</kotlin.version>
         <spring-boot.version>3.2.4</spring-boot.version>
 
+        <java-jwt.version>4.4.0</java-jwt.version>
         <sokomishalov-commons.version>1.2.1</sokomishalov-commons.version>
 
         <springmockk.version>3.0.1</springmockk.version>
@@ -46,6 +50,11 @@
         <dependencies>
             <dependency>
                 <groupId>ru.skubatko.dev.otus</groupId>
+                <artifactId>api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>ru.skubatko.dev.otus</groupId>
                 <artifactId>common</artifactId>
                 <version>${revision}</version>
             </dependency>
@@ -54,6 +63,11 @@
                 <groupId>ru.sokomishalov.commons</groupId>
                 <artifactId>commons-logging</artifactId>
                 <version>${sokomishalov-commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java-jwt.version}</version>
             </dependency>
             <dependency>
                 <groupId>ru.sokomishalov.commons</groupId>
@@ -188,9 +202,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
+                        <!--suppress MavenModelInspection -->
                         <argLine>
                             -Djava.net.preferIPv4Stack=true
                             -Dfile.encoding=UTF-8
+                            ${surefire.jacoco.args}
                         </argLine>
                     </configuration>
                 </plugin>
@@ -351,6 +367,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -6,13 +6,17 @@
 
     <parent>
         <groupId>ru.skubatko.dev.otus</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>auth</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>service</artifactId>
+    <artifactId>auth-client</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>ru.skubatko.dev.otus</groupId>
+            <artifactId>api</artifactId>
+        </dependency>
         <dependency>
             <groupId>ru.skubatko.dev.otus</groupId>
             <artifactId>common</artifactId>
