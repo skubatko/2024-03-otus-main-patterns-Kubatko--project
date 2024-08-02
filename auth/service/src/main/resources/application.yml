@@ -1,9 +1,9 @@
 server:
-  port: 8081
+  port: 8181
 
 spring:
   application:
-    name: service
+    name: auth
 
 logging:
   pattern.console: '%white([%thread]) %highlight(%-5level) %cyan(%logger{5}) %magenta([%file:%-4L]) - %msg%n'

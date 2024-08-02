@@ -1,4 +1,4 @@
-package ru.skubatko.dev.otus.common
+package ru.skubatko.dev.otus.common.test
 
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.matching.RequestPatternBuilder
