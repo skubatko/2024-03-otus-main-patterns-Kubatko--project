@@ -3,6 +3,5 @@ spring:
     banner-mode: off
 
 logging:
-  pattern.console: '%white([%thread]) %highlight(%-5level) %cyan(%logger{5}) %magenta([%file:%-4L]) - %msg%n'
   level:
     root: OFF

@@ -33,6 +33,10 @@
         <kotlin.version>1.9.23</kotlin.version>
         <spring-boot.version>3.2.4</spring-boot.version>
 
+        <springdoc.version>2.2.0</springdoc.version>
+        <logbook.version>2.2.0</logbook.version>
+        <problem.version>0.29.1</problem.version>
+        <jackson.problem.version>0.27.1</jackson.problem.version>
         <java-jwt.version>4.4.0</java-jwt.version>
         <sokomishalov-commons.version>1.2.1</sokomishalov-commons.version>
 
@@ -57,6 +61,37 @@
                 <groupId>ru.skubatko.dev.otus</groupId>
                 <artifactId>common</artifactId>
                 <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>ru.skubatko.dev.otus</groupId>
+                <artifactId>jwt-client</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>ru.skubatko.dev.otus</groupId>
+                <artifactId>user-client</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.zalando</groupId>
+                <artifactId>problem-spring-common</artifactId>
+                <version>${problem.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.zalando</groupId>
+                <artifactId>problem-spring-web</artifactId>
+                <version>${problem.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.zalando</groupId>
+                <artifactId>jackson-datatype-problem</artifactId>
+                <version>${jackson.problem.version}</version>
             </dependency>
 
             <dependency>

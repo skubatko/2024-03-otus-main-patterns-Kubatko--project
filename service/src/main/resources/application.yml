@@ -5,6 +5,23 @@ spring:
   application:
     name: service
 
+springdoc:
+  pre-loading-enabled: true
+  show-actuator: false
+  webjars:
+    prefix:
+  swagger-ui:
+    default-model-expand-depth: 0
+    default-models-expand-depth: 0
+    disable-swagger-default-url: true
+    doc-expansion: false
+    operations-sorter: alpha
+    tags-sorter: alpha
+    display-request-duration: true
+    use-root-path: true
+    path: /swagger-ui.html
+    url: /v3/api-docs
+
 logging:
   pattern.console: '%white([%thread]) %highlight(%-5level) %cyan(%logger{5}) %magenta([%file:%-4L]) - %msg%n'
   level:

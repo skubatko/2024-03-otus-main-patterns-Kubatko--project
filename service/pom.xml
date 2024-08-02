@@ -15,7 +15,19 @@
     <dependencies>
         <dependency>
             <groupId>ru.skubatko.dev.otus</groupId>
+            <artifactId>api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ru.skubatko.dev.otus</groupId>
             <artifactId>common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ru.skubatko.dev.otus</groupId>
+            <artifactId>jwt-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ru.skubatko.dev.otus</groupId>
+            <artifactId>user-client</artifactId>
         </dependency>
 
         <dependency>
@@ -24,8 +36,38 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem-spring-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem-spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>jackson-datatype-problem</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.sokomishalov.commons</groupId>
+            <artifactId>commons-spring</artifactId>
         </dependency>
 
         <dependency>
