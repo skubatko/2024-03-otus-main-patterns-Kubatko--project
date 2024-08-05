@@ -1,5 +1,6 @@
-package ru.skubatko.dev.otus.config
+package ru.skubatko.dev.otus.editor.config
 
+import ru.skubatko.dev.otus.api.models.user.UserRole
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType
 import io.swagger.v3.oas.annotations.security.SecurityScheme
 import org.springframework.context.annotation.Bean
@@ -32,8 +33,10 @@ class WebSecurityConfig {
         http
             .csrf { it.disable() }
             .cors { it.disable() }
-            .authorizeHttpRequests { requests ->
-                requests.requestMatchers(*AUTH_WHITELIST).anonymous().anyRequest().authenticated()
+            .authorizeHttpRequests { auth ->
+                auth.requestMatchers(*AUTH_WHITELIST).anonymous()
+                    .requestMatchers("/api/v1/admin/**").hasAuthority(UserRole.ROLE_ADMIN.name)
+                    .anyRequest().authenticated()
             }
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .exceptionHandling { exceptionHandlingConfigurer ->

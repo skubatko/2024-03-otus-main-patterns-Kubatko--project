@@ -1,4 +1,4 @@
-package ru.skubatko.dev.otus.security
+package ru.skubatko.dev.otus.editor.security
 
 import ru.skubatko.dev.otus.api.models.jwt.JwtValidationReqDto
 import ru.skubatko.dev.otus.jwt.client.JwtClient
@@ -8,7 +8,7 @@ import org.springframework.security.oauth2.server.resource.authentication.Bearer
 import org.springframework.stereotype.Component
 
 @Component
-class ServerAuthenticationManager(
+class EditorAuthenticationManager(
     private val jwtClient: JwtClient,
 ) : AuthenticationManager {
 

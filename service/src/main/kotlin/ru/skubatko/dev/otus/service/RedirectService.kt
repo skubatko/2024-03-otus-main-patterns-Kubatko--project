@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service
 class RedirectService {
 
     fun getUrl(): String {
-        TODO()
+        return "redirectedUrl"
     }
 }
