@@ -2,6 +2,11 @@ spring:
   main:
     banner-mode: off
 
+msa:
+  clients:
+    jwt:
+      base-url: ${wiremock.server.base-url}/jwt
+
 logging:
   level:
     root: OFF

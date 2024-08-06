@@ -1,13 +1,5 @@
 package ru.skubatko.dev.otus.jwt.web
 
-import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
-import ru.skubatko.dev.otus.api.models.jwt.JwtGameIdRespDto
 import ru.skubatko.dev.otus.api.models.jwt.JwtGenerationReqDto
 import ru.skubatko.dev.otus.api.models.jwt.JwtGenerationRespDto
 import ru.skubatko.dev.otus.api.models.jwt.JwtUsernameRespDto
@@ -17,6 +9,13 @@ import ru.skubatko.dev.otus.api.models.user.Username
 import ru.skubatko.dev.otus.jwt.mappers.toUser
 import ru.skubatko.dev.otus.jwt.service.JwtTokenService
 import ru.skubatko.dev.otus.jwt.utils.GAME_ID_CLAIM
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 import ru.sokomishalov.commons.core.log.Loggable
 
 @RestController
@@ -28,10 +27,6 @@ class JwtController(
     @GetMapping("/username")
     fun getUsername(@RequestParam(value = "token", required = true) token: String) =
         ResponseEntity.ok(JwtUsernameRespDto(jwtTokenService.getUsername(token)))
-
-    @GetMapping("/game")
-    fun getGameId(@RequestParam(value = "token", required = true) token: String) =
-        ResponseEntity.ok(JwtGameIdRespDto(jwtTokenService.getGameId(token)))
 
     @PostMapping("/generate")
     fun generate(@RequestBody jwtGenerationReqDto: JwtGenerationReqDto) =

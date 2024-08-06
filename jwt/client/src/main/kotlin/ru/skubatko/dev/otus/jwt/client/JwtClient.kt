@@ -1,6 +1,7 @@
+@file:Suppress("unused")
+
 package ru.skubatko.dev.otus.jwt.client
 
-import ru.skubatko.dev.otus.api.models.jwt.JwtGameIdRespDto
 import ru.skubatko.dev.otus.api.models.jwt.JwtGenerationReqDto
 import ru.skubatko.dev.otus.api.models.jwt.JwtGenerationRespDto
 import ru.skubatko.dev.otus.api.models.jwt.JwtUsernameRespDto
@@ -30,14 +31,8 @@ class JwtClient(
 
     fun isTokenValid(jwtValidationReqDto: JwtValidationReqDto) =
         restTemplate.postForObject(
-            "$baseUrl/generate",
+            "$baseUrl/validate",
             HttpEntity(jwtValidationReqDto),
             JwtValidationRespDto::class.java
-        )
-
-    fun getGameId(jwtToken: String): JwtGameIdRespDto? =
-        restTemplate.getForObject(
-            UriComponentsBuilder.fromPath("$baseUrl/game").queryParam("token", jwtToken).encode().toUriString(),
-            JwtGameIdRespDto::class.java
         )
 }

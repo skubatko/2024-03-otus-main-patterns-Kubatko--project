@@ -1,5 +1,7 @@
 package ru.skubatko.dev.otus.jwt.service
 
+import ru.skubatko.dev.otus.api.models.user.User
+import ru.skubatko.dev.otus.api.models.user.Username
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTCreator
 import com.auth0.jwt.JWTVerifier
@@ -9,10 +11,8 @@ import com.auth0.jwt.interfaces.Claim
 import com.auth0.jwt.interfaces.DecodedJWT
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
-import ru.skubatko.dev.otus.api.models.user.User
-import ru.skubatko.dev.otus.api.models.user.Username
 import ru.sokomishalov.commons.core.consts.EMPTY
-import java.util.Date
+import java.util.*
 
 @Service
 class JwtTokenService(
@@ -50,9 +50,6 @@ class JwtTokenService(
 
     fun getUsername(token: String) =
         getClaim(token) { claims -> claims["sub"]?.asString() ?: EMPTY }
-
-    fun getGameId(token: String) =
-        getClaim(token) { claims -> claims["GAME_ID_CLAIM"]?.asInt() ?: -1 }
 
     fun getExpiration(token: String) =
         getClaim(token) { claims -> claims["exp"]?.asDate() ?: Date() }
