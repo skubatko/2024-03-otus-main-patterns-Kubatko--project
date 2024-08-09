@@ -3,6 +3,7 @@
 package ru.skubatko.dev.otus.common.rest
 
 import org.springframework.boot.web.client.RestTemplateBuilder
+import org.springframework.http.client.ClientHttpRequestInterceptor
 import org.springframework.http.converter.StringHttpMessageConverter
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
 import org.springframework.web.client.RestTemplate
@@ -16,11 +17,13 @@ object RestTemplateFactory {
     fun create(
         restTemplateBuilder: RestTemplateBuilder,
         restProps: RestProps,
+        vararg interceptors: ClientHttpRequestInterceptor
     ): RestTemplate =
         restTemplateBuilder
             .rootUri(restProps.baseUrl)
             .setConnectTimeout(restProps.connectTimeout)
             .setReadTimeout(restProps.readTimeout)
+            .additionalInterceptors(*interceptors)
             .build()
             .also { restTemplate ->
                 restTemplate.messageConverters

@@ -2,6 +2,7 @@ package ru.skubatko.dev.otus.user.client
 
 import ru.skubatko.dev.otus.api.models.user.UserDto
 import org.springframework.web.client.RestTemplate
+import org.springframework.web.client.getForObject
 import org.springframework.web.util.UriComponentsBuilder
 
 class UserClient(
@@ -9,9 +10,8 @@ class UserClient(
 ) {
     private val baseUrl = "/api/v1/user"
 
-    fun findByLogin(login: String): UserDto? =
-        restTemplate.getForObject(
+    fun findByLogin(login: String): UserDto =
+        restTemplate.getForObject<UserDto>(
             UriComponentsBuilder.fromPath(baseUrl).queryParam("login", login).encode().toUriString(),
-            UserDto::class.java
         )
 }

@@ -10,4 +10,5 @@ data class SmartLinkRule(
     @Id val id: String = ObjectId().toHexString(),
     val name: String = EMPTY,
     val rule: String = EMPTY,
+    val link: String = EMPTY,
 )

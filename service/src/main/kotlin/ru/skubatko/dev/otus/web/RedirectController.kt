@@ -16,5 +16,5 @@ class RedirectController(
 
     @GetMapping("/redirect")
     fun redirect(): RedirectView =
-        RedirectView(redirectService.getUrl())
+        RedirectView(redirectService.getLink())
 }

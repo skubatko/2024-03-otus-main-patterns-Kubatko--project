@@ -8,7 +8,6 @@ import ru.skubatko.dev.otus.api.models.jwt.JwtValidationRespDto
 import ru.skubatko.dev.otus.api.models.user.Username
 import ru.skubatko.dev.otus.jwt.mappers.toUser
 import ru.skubatko.dev.otus.jwt.service.JwtTokenService
-import ru.skubatko.dev.otus.jwt.utils.GAME_ID_CLAIM
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -32,11 +31,14 @@ class JwtController(
     fun generate(@RequestBody jwtGenerationReqDto: JwtGenerationReqDto) =
         ResponseEntity.ok(
             JwtGenerationRespDto(
-                jwtTokenService.generateToken(
-                    jwtGenerationReqDto.toUser(),
-                    mapOf(GAME_ID_CLAIM to jwtGenerationReqDto.gameId.toString())
-                )
+                jwtTokenService.generateToken(jwtGenerationReqDto.toUser())
             )
+        )
+
+    @PostMapping("/tech-token")
+    fun techToken() =
+        ResponseEntity.ok(
+            JwtGenerationRespDto(jwtTokenService.techToken())
         )
 
     @PostMapping("/validate")

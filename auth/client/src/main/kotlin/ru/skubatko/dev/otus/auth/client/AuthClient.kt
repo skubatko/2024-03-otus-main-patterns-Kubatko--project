@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package ru.skubatko.dev.otus.auth.client
 
 import ru.skubatko.dev.otus.api.models.auth.AuthReqDto

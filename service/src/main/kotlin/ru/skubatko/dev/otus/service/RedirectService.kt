@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 @Service
 class RedirectService {
 
-    fun getUrl(): String {
+    fun getLink(): String {
         return "redirectedUrl"
     }
 }

@@ -1,6 +1,6 @@
 package ru.skubatko.dev.otus.editor.web
 
-import ru.skubatko.dev.otus.editor.model.SmartLinkRuleDto
+import ru.skubatko.dev.otus.api.models.rule.SmartLinkRuleDto
 import ru.skubatko.dev.otus.editor.model.SmartLinkRuleUpdateDto
 import ru.skubatko.dev.otus.editor.service.RuleService
 import ru.skubatko.dev.otus.editor.web.util.toResponseEntity
@@ -18,17 +18,13 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @SecurityRequirement(name = "bearerAuth")
 @RequestMapping("\${api.base-path:/api/v1}/admin/rules")
-class RuleController(
+class AdminRuleController(
     private val ruleService: RuleService
 ) {
 
     @GetMapping("/{id}")
     fun findById(@PathVariable("id") id: String): ResponseEntity<SmartLinkRuleDto> =
         ruleService.findById(id).toResponseEntity()
-
-    @GetMapping
-    fun findAll(): ResponseEntity<List<SmartLinkRuleDto>> =
-        ruleService.findAll().toResponseEntity()
 
     @PostMapping
     fun add(@RequestBody dto: SmartLinkRuleUpdateDto): ResponseEntity<SmartLinkRuleDto> =

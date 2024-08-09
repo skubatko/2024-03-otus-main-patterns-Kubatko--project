@@ -6,35 +6,41 @@
 
     <parent>
         <groupId>ru.skubatko.dev.otus</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>editor</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>common</artifactId>
+    <artifactId>editor-client</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>ru.skubatko.dev.otus</groupId>
-            <artifactId>jwt-client</artifactId>
+            <artifactId>api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ru.skubatko.dev.otus</groupId>
+            <artifactId>common</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
-            <groupId>com.ninja-squad</groupId>
-            <artifactId>springmockk</artifactId>
+            <groupId>ru.sokomishalov.commons</groupId>
+            <artifactId>commons-spring</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>com.marcinziolo</groupId>
-            <artifactId>kotlin-wiremock</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

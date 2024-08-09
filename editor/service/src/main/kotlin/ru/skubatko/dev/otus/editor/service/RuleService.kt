@@ -1,8 +1,8 @@
 package ru.skubatko.dev.otus.editor.service
 
+import ru.skubatko.dev.otus.api.models.rule.SmartLinkRuleDto
 import ru.skubatko.dev.otus.editor.mapper.toDto
 import ru.skubatko.dev.otus.editor.mapper.toEntity
-import ru.skubatko.dev.otus.editor.model.SmartLinkRuleDto
 import ru.skubatko.dev.otus.editor.model.SmartLinkRuleUpdateDto
 import ru.skubatko.dev.otus.editor.repository.SmartLinkRuleRepository
 import org.springframework.stereotype.Service

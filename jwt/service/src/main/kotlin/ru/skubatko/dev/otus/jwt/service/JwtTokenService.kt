@@ -1,6 +1,7 @@
 package ru.skubatko.dev.otus.jwt.service
 
 import ru.skubatko.dev.otus.api.models.user.User
+import ru.skubatko.dev.otus.api.models.user.UserAuthority
 import ru.skubatko.dev.otus.api.models.user.Username
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTCreator
@@ -19,6 +20,10 @@ class JwtTokenService(
     @Value("\${jwt.secret-key}") private val secretKey: String,
     @Value("\${jwt.expiration}") private val expiration: Long
 ) {
+
+    fun techToken(): String {
+        return generateToken(User(Username("tech-user"), UserAuthority("USER")))
+    }
 
     fun generateToken(user: User): String {
         return generateToken(user, mapOf())
